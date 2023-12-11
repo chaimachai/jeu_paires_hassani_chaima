@@ -8,7 +8,24 @@ verso.forEach(element => {
     element.src = "./public/img/verso.jpg"
 })
 
-
+let melange = () => {
+    let recto_bis = Array.from(recto)
+    for (let i = 0; i < 2; i++) {
+        let random = parseInt(Math.random() * recto_bis.length - i);
+        recto_bis[random].src = "./public/img/carte_1.jpg" 
+        recto_bis.splice(random,1)
+    }
+    for (let i = 0; i < 2; i++) {
+        let random = parseInt(Math.random() * recto_bis.length - i);
+        recto_bis[random].src = "./public/img/carte_2.jpg" 
+        recto_bis.splice(random,1)
+    }
+    for (let i = 0; i < 2; i++) {
+        let random = parseInt(Math.random() * recto_bis.length - i);
+        recto_bis[random].src = "./public/img/carte_3.jpg" 
+        recto_bis.splice(random,1)
+    }
+}
 
 melange()
 let retourner = (e)=>{
