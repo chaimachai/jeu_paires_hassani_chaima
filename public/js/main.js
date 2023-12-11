@@ -1,12 +1,25 @@
 let recto = document.querySelectorAll(".recto");
 let verso = document.querySelectorAll(".verso");
 let cartes = document.querySelectorAll(".cartes");
+let chrono = document.querySelector(".chrono")
 let count = 0;
 let continu = true;
+let sec = 0;
+let min = 0;
 
 verso.forEach(element => {
     element.src = "./public/img/verso.jpg"
 })
+
+setInterval(()=>{
+    sec ++
+    if (sec == 60){
+        sec = 0;
+        min += 1
+    }
+    chrono.innerHTML = `${min} : ${sec}`
+    console.log(min + ":" + sec);
+},1000)
 
 let melange = () => {
     let recto_bis = Array.from(recto)
