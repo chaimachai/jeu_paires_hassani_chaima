@@ -6,6 +6,7 @@ let count = 0;
 let continu = true;
 let sec = 0;
 let min = 0;
+let heure = 0;
 
 verso.forEach(element => {
     element.src = "./public/img/verso.jpg"
@@ -17,8 +18,11 @@ setInterval(()=>{
         sec = 0;
         min += 1
     }
-    chrono.innerHTML = `${min} : ${sec}`
-    console.log(min + ":" + sec);
+    if(min == 60){
+        min = 0;
+        heure += 1
+    }
+    (heure == 0)? chrono.innerHTML = `${min} : ${sec}` : chrono.innerHTML = `${heure} : ${min} : ${sec}`
 },1000)
 
 let melange = () => {
