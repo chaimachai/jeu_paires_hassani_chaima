@@ -33,7 +33,7 @@ let joueur = {
 }
 
 verso.forEach(element => {
-    element.src = "./public/img/verso.jpg"
+    element.src = "./public/img/gryffindor.png"
 })
 
 setInterval(()=>{
@@ -82,7 +82,7 @@ let retourner = (e)=>{
                 test[1].classList.remove("test");
                 count = 0
                 continu = true
-            },2000)
+            },1000)
         }
     }
 }

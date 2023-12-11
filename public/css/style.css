@@ -3,12 +3,31 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
-    justify-content: center;
 }
-img{
+.affichage{
+    background-image: radial-gradient(circle, #a9694f, #804c42, #553332, #2d1d1f, #000000);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.affichage input, .affichage button{
+    background-color: transparent;
+    border-color: rgb(205,164,94);
+}
+
+.cartes img{
     width: 10vw;
     height: 15vw;
+    object-fit: cover;
 }
 .none{
     display: none;
@@ -17,8 +36,45 @@ img{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
-    gap: 1rem;
+    gap: 2rem;
 }
 .find{
     opacity: 0;
+}
+.jeu{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+.cartes{
+    border: 1px solid rgb(205,164,94);
+    border-radius: 0.2rem;
+}
+/* h1{
+    color:  rgb(205,164,94);
+} */
+.logo{
+    width: 100vw;
+    margin: 0;
+    height: fit-content;
+    object-fit: cover;
+    text-align: center;
+}
+
+.chrono{
+    margin: 0;
+    color: rgb(205,164,94);
+    font-size: xx-large;
+    position: absolute;
+    left: 20%;
+    top: 20%;
 }
