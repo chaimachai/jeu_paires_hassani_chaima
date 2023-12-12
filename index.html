@@ -8,7 +8,8 @@
 </head>
 <body>
     <section class="affichage">
-        <h1>Bienvenue dans Memory</h1>
+        <img src="./public/img/logo2.png" alt="" class="logo_affichage">
+        <img src="./public/img/choixpeau.png" alt="" class="choixpeau">
         <div>
             <input type="text" id="input_pseudo">
             <button id="btn_pseudo">GO</button>
@@ -18,17 +19,34 @@
         <div class="logo">
             <img src="./public/img/logo2.png" alt="">
         </div>
-        <h1 class="pseudo"></h1>
-        <h4 class="chrono"></h4>
-        <section>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
-            <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+        <section class="jeux">
+            <h4 class="chrono"></h4>
+            <div class="clone"></div>
+            <section>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+                <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
+            </section>
         </section>
     </section>
+    <section class="score none">
+        <div class="tableau_score">
+            <h1>Joueur</h1>
+            <h1>Niveau</h1>
+            <h1>Temps</h1>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1></h1>
+        <div>
+            <button id="btn_yes">Oui</button>
+            <button id="btn_no">Non</button>
+        </div>
+        </section>
     <script src="./public/js/main.js"></script>
 </body>
 </html>
