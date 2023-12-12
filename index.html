@@ -10,9 +10,19 @@
     <section class="affichage">
         <img src="./public/img/logo2.png" alt="" class="logo_affichage">
         <img src="./public/img/choixpeau.png" alt="" class="choixpeau">
-        <div>
-            <input type="text" id="input_pseudo">
+        <div class="div_affichage">
+            <div>
+                <input type="text" id="input_pseudo">
+                <select name="" id="">
+                    <option value="facile">Facile</option>
+                    <option value="moyen">Moyen</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+            </div>
             <button id="btn_pseudo">GO</button>
+        </div>
+        <div class="affichage_2 none">
+            <h1 class="maison"></h1>
         </div>
     </section>
     <section class="jeu none">
@@ -20,8 +30,8 @@
             <img src="./public/img/logo2.png" alt="">
         </div>
         <section class="jeux">
-            <h4 class="chrono"></h4>
             <div class="clone"></div>
+            <h4 class="chrono"></h4>
             <section>
                 <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
                 <div class="cartes"><img src="" alt="" class="recto none"><img src="" alt="" class="verso"></div>
@@ -41,7 +51,7 @@
             <div></div>
             <div></div>
         </div>
-        <h1></h1>
+        <h1 class="question"></h1>
         <div>
             <button id="btn_yes">Oui</button>
             <button id="btn_no">Non</button>
