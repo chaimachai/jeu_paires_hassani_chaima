@@ -28,7 +28,7 @@ body{
     width: 10vw;
     margin: 1rem;
 }
-#input_pseudo, #btn_pseudo, select{
+#input_pseudo, #btn_pseudo, select, #btn_yes, #btn_no{
     background-color: transparent;
     border-color: rgb(205,164,94);
     color: rgb(205,164,94);
@@ -79,7 +79,7 @@ option{
 }
 
 .logo{
-    width: 100vw;
+    max-width: 100vw;
     margin: 0;
     height: fit-content;
     object-fit: cover;
@@ -90,9 +90,6 @@ option{
     margin: 0;
     color: rgb(205,164,94);
     font-size: xx-large;
-    position: absolute;
-    left: 20%;
-    top: 20%;
 }
 .maison{
     position: absolute;
@@ -164,4 +161,9 @@ option{
 }
 .none{
     display: none;
+}
+@media screen and (max-width: 768px){
+    .jeux{
+        flex-direction: column;
+    }
 }

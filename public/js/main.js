@@ -97,6 +97,7 @@ let melange = () => {
 let retourner = (e)=>{
     recto = document.querySelectorAll(".recto");
     verso = document.querySelectorAll(".verso");
+    cartes = document.querySelectorAll(".cartes");
     if (continu){
         e.target.parentElement.classList.add("animation");
         setTimeout(()=>{
