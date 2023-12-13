@@ -65,9 +65,7 @@ btn_no.addEventListener("click",()=>{
 btn_yes.addEventListener("click",()=>{
     score.classList.add("none");
     jeu.classList.remove("none");
-    setTimeout(()=>{
-        partie();
-    },1000)
+    partie();
 })
 
 let melange = () => {
@@ -127,8 +125,8 @@ let retourner = (e)=>{
             setTimeout(()=>{
                 let test = document.querySelectorAll(".test");
                 if (test[0].src == test[1].src){
-                    test[0].classList.add("find");
-                    test[1].classList.add("find");
+                    test[0].parentElement.classList.add("find");
+                    test[1].parentElement.classList.add("find");
                     echec = 0;
                     if (document.querySelectorAll(".find").length == cartes.length){
                         score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle partie en mode ${niveau} ${pseudo} ?`;
@@ -208,7 +206,7 @@ let partie = () =>{
         element.classList.remove("none");
     })
     recto.forEach(element => {
-        element.classList.remove("find");
+        element.parentElement.classList.remove("find");
         element.classList.add("none");
     })
     verso.forEach(element => {

@@ -168,12 +168,15 @@ option{
 }
 @keyframes indice {
     to{
-        box-shadow:  10px 10px 20px rgba(255,255,255,0.6), -10px -10px 20px rgba(255,255,255,0.6);
+        box-shadow:  5px 5px 40px rgba(255,255,255,0.6), -5px -5px 40px rgba(255,255,255,0.6);
     }
 }
 .find{
-    opacity: 0;
-    border: none !important;
+    border:none;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.6),  -10px -10px 40px rgba(0,0,0,0.6);
+}
+.find img:first-of-type{
+    opacity: 0.1;
 }
 
 .none{
