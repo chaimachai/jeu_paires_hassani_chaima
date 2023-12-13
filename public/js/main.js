@@ -107,8 +107,6 @@ let melange = () => {
     })
 }
 let retourner = (e)=>{
-    recto = document.querySelectorAll(".recto");
-    verso = document.querySelectorAll(".verso");
     cartes = document.querySelectorAll(".cartes");
     if (continu){
         recto.forEach(element => {

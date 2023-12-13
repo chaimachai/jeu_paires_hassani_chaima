@@ -186,6 +186,7 @@ option{
 
 @media screen and (max-width: 968px){
     .jeux{
+        align-items: center;
         flex-direction: column;
     }
 }
