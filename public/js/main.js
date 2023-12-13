@@ -35,25 +35,27 @@ let lancer = () => {
         pseudo = input_pseudo.value;
         input_pseudo.value = "";
         maison = maisons[parseInt(Math.random()*maisons.length)];
-        niveau = document.querySelector("select").value
+        niveau = document.querySelector("select").value;
         affichage.classList.add("none");
         affichage2.classList.remove("none");
-        document.querySelector(".maison").innerHTML = `Difficile, très difficile… Je vois beaucoup de courage et des qualités intellectuelles aussi. Il y a du talent, oh oui, et un grand désir de faire ses preuves. Alors, où vais-je te mettre ?`
+        document.querySelector(".maison").innerHTML = `Difficile, très difficile… Je vois beaucoup de courage et des qualités intellectuelles aussi. Il y a du talent, oh oui, et un grand désir de faire ses preuves. Alors, où vais-je te mettre ?`;
+        affichage2.querySelector("img").src =  "./public/img/" + maison + ".png";
         setTimeout(()=>{
-            document.querySelector(".maison").innerHTML = ``
-            affichage2.querySelector("img").src =  "./public/img/" + maison + ".png";
+            document.querySelector(".maison").innerHTML = ``;
+            affichage2.querySelector("img").classList.remove("none");
         },4000)
-        affichage2.querySelector("img").src = "";
         setTimeout(()=>{
+            affichage2.querySelector("img").src = "";
+            affichage2.querySelector("img").classList.add("none");
             affichage2.classList.add("none");
             jeu.classList.remove("none");
-            partie()
+            partie();
         },6000)
     }
 }
 
-input_pseudo.addEventListener("keyup",(e)=>{
-(e.key == "Enter")? lancer() : ""
+input_pseudo.addEventListener("keyup", (e) => {
+    (e.key == "Enter") ? lancer() : ""
 })
 btn_pseudo.addEventListener("click",lancer);
 btn_no.addEventListener("click",()=>{
@@ -61,9 +63,11 @@ btn_no.addEventListener("click",()=>{
     score.classList.add("none");
 })
 btn_yes.addEventListener("click",()=>{
-    partie();
     score.classList.add("none");
     jeu.classList.remove("none");
+    setTimeout(()=>{
+        partie()
+    },1000)
 })
 
 let melange = () => {
@@ -84,7 +88,7 @@ let melange = () => {
             cartes[0].parentElement.appendChild(div);
         }
         cartes[0].parentElement.style = "grid-template-columns: repeat(4,1fr); gap: 3rem"
-    }else if (niveau == "difficile"){
+    }else if (niveau == "difficile" || niveau == "expert"){
         les_src = ["./public/img/carte_1.jpg", "./public/img/carte_1.jpg", "./public/img/carte_2.jpg" ,"./public/img/carte_2.jpg" ,"./public/img/carte_3.jpg","./public/img/carte_3.jpg","./public/img/carte_4.jpg","./public/img/carte_4.jpg","./public/img/carte_5.jpg","./public/img/carte_5.jpg"];
         for(let i=0; i<4; i++){
             let div= document.createElement("div");
@@ -117,7 +121,7 @@ let retourner = (e)=>{
             e.target.previousElementSibling.classList.remove("none");
             e.target.previousElementSibling.classList.add("test");
             e.target.classList.toggle("none");
-        },500)
+        },250)
         count += 1;
         if (count == 2){
             continu = false
@@ -158,7 +162,7 @@ let retourner = (e)=>{
                     }
                 }else{
                     echec += 1
-                    if (echec >= 3 && niveau != "difficile"){
+                    if (echec >= 3 && niveau != "expert"){
                         recto.forEach(element => {
                             if (element.src == test[0].src){
                                 element.parentElement.classList.add("indice");
@@ -177,7 +181,7 @@ let retourner = (e)=>{
                 test[1].parentElement.classList.remove("animation");
                 count = 0
                 continu = true
-            },1000)
+            },500)
         }
     }
 }

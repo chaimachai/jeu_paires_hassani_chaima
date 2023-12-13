@@ -156,7 +156,7 @@ option{
 /* classe JS */
 
 .animation{
-    animation: retourner 0.5s alternate 2;
+    animation: retourner 0.250s alternate 2;
 }
 @keyframes retourner {
     to{
