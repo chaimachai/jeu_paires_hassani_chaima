@@ -9,7 +9,6 @@ let score = document.querySelector(".score");
 let btn_yes = document.querySelector("#btn_yes");
 let btn_no = document.querySelector("#btn_no");
 let jeu = document.querySelector(".jeu");
-let h1 = document.querySelector("h1");
 let tableau_score = document.querySelector(".tableau_score");
 let clone = document.querySelector(".clone");
 let affichage2 = document.querySelector(".affichage_2")
@@ -27,6 +26,7 @@ let niveau;
 let niveaux = ["facile","moyen","difficile"]
 
 let joueur = {
+    maison: maison,
     nom: pseudo,
 }
 
@@ -36,18 +36,22 @@ let lancer = () => {
         input_pseudo.value = "";
         maison = maisons[parseInt(Math.random()*maisons.length)];
         niveau = document.querySelector("select").value
+        affichage.classList.add("none");
+        affichage2.classList.remove("none");
+        document.querySelector(".maison").innerHTML = `Difficile, très difficile… Je vois beaucoup de courage et des qualités intellectuelles aussi. Il y a du talent, oh oui, et un grand désir de faire ses preuves. Alors, où vais-je te mettre ?`
         setTimeout(()=>{
-            affichage.classList.add("none");
-            affichage2.classList.remove("none");
-            document.querySelector(".maison").innerHTML = `Le choixpeau a fait le choix de te mettre dns la maison ${maison}!`
-        },1000)
+            document.querySelector(".maison").innerHTML = ``
+            affichage2.querySelector("img").src =  "./public/img/" + maison + ".png";
+        },4000)
+        affichage2.querySelector("img").src = "";
         setTimeout(()=>{
-            affichage.classList.add("none");
+            affichage2.classList.add("none");
             jeu.classList.remove("none");
             partie()
-        },5000)
+        },6000)
     }
 }
+
 input_pseudo.addEventListener("keyup",(e)=>{
 (e.key == "Enter")? lancer() : ""
 })
@@ -71,7 +75,7 @@ let melange = () => {
         les_src = ["./public/img/carte_1.jpg", "./public/img/carte_1.jpg", "./public/img/carte_2.jpg" ,"./public/img/carte_2.jpg" ,"./public/img/carte_3.jpg","./public/img/carte_3.jpg","./public/img/carte_4.jpg","./public/img/carte_4.jpg"];
         for(let i=0; i<2; i++){
             let div= document.createElement("div");
-            div.className = "cartes";
+            div.className = "cartes moyen";
             let img_recto = document.createElement("img");
             let img_verso = document.createElement("img");
             img_recto.className = "recto none";
@@ -103,30 +107,44 @@ let retourner = (e)=>{
         count += 1;
         if (count == 2){
             continu = false
-            let test = document.querySelectorAll(".test");
-            if (test[0].src == test[1].src){
-                test[0].classList.add("find");
-                test[1].classList.add("find");
-                echec = 0;
-                recto.forEach(element => {
-                    element.parentElement.classList.remove("indice");
-                })
-                if (document.querySelectorAll(".find").length == cartes.length){
-                    score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle parties ${pseudo} ?`
-                    let h2_1 = document.createElement("h2");
-                    let h2_2 = document.createElement("h2");
-                    let h2_3 = document.createElement("h2");
-                    h2_1.innerHTML = pseudo;
-                    h2_2.innerHTML = niveau;
-                    h2_3.innerHTML = `${heure} : ${min} : ${sec}`;
-                    tableau_score.querySelectorAll("div")[0].appendChild(h2_1);
-                    tableau_score.querySelectorAll("div")[1].appendChild(h2_2);
-                    tableau_score.querySelectorAll("div")[2].appendChild(h2_3);
-                    score.classList.remove("none");
-                    jeu.classList.add("none");
-                }
-            }else{
-                setTimeout(()=>{
+            setTimeout(()=>{
+                let test = document.querySelectorAll(".test");
+                if (test[0].src == test[1].src){
+                    test[0].classList.add("find");
+                    test[1].classList.add("find");
+                    echec = 0;
+                    recto.forEach(element => {
+                        element.parentElement.classList.remove("indice");
+                    })
+                    if (document.querySelectorAll(".find").length == cartes.length){
+                        score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle parties ${pseudo} ?`
+                        if(tableau_score.querySelectorAll("h2").length > 40){
+                            tableau_score.querySelectorAll("h2").forEach(element =>{
+                                element.parentElement.removeChild(element)
+                            })
+                        }
+                        let h2_1 = document.createElement("h2");
+                        let h2_2 = document.createElement("h2");
+                        let h2_3 = document.createElement("h2");
+                        let h2_4 = document.createElement("h2");
+                        h2_1.innerHTML = maison;
+                        h2_2.innerHTML = pseudo;
+                        h2_3.innerHTML = niveau;
+                        h2_4.innerHTML = `${heure} : ${min} : ${sec}`;
+                        tableau_score.querySelectorAll("div")[0].appendChild(h2_1);
+                        tableau_score.querySelectorAll("div")[1].appendChild(h2_2);
+                        tableau_score.querySelectorAll("div")[2].appendChild(h2_3);
+                        tableau_score.querySelectorAll("div")[3].appendChild(h2_4);
+                        score.classList.remove("none");
+                        jeu.classList.add("none");
+                        let div_moyen = document.querySelectorAll('.moyen');
+                        let section_cartes = document.querySelector(".section_cartes")
+                        div_moyen.forEach(element =>{
+                            section_cartes.removeChild(element)
+                        })
+                        console.log(cartes.length);
+                    }
+                }else{
                     echec += 1
                     if (echec == 3 && niveau != "difficile"){
                         recto.forEach(element => {
@@ -140,14 +158,14 @@ let retourner = (e)=>{
                     test[1].nextElementSibling.classList.remove("none");
                     test[0].classList.add("none");
                     test[1].classList.add("none");
-                },1500)
-            }
-            test[0].classList.remove("test");
-            test[1].classList.remove("test");
-            test[0].parentElement.classList.remove("animation");
-            test[1].parentElement.classList.remove("animation");
-            count = 0
-            continu = true
+                }
+                test[0].classList.remove("test");
+                test[1].classList.remove("test");
+                test[0].parentElement.classList.remove("animation");
+                test[1].parentElement.classList.remove("animation");
+                count = 0
+                continu = true
+            },1000)
         }
     }
 }
