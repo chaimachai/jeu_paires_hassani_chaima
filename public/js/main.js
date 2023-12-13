@@ -99,6 +99,9 @@ let retourner = (e)=>{
     verso = document.querySelectorAll(".verso");
     cartes = document.querySelectorAll(".cartes");
     if (continu){
+        recto.forEach(element => {
+            element.parentElement.classList.remove("indice");
+        })
         e.target.parentElement.classList.add("animation");
         setTimeout(()=>{
             e.target.previousElementSibling.classList.remove("none");
@@ -114,9 +117,6 @@ let retourner = (e)=>{
                     test[0].classList.add("find");
                     test[1].classList.add("find");
                     echec = 0;
-                    recto.forEach(element => {
-                        element.parentElement.classList.remove("indice");
-                    })
                     if (document.querySelectorAll(".find").length == cartes.length){
                         score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle partie en mode ${niveau} ${pseudo} ?`
                         if(tableau_score.querySelectorAll("h2").length > 40){
@@ -148,7 +148,7 @@ let retourner = (e)=>{
                     }
                 }else{
                     echec += 1
-                    if (echec == 3 && niveau != "difficile"){
+                    if (echec >= 3 && niveau != "difficile"){
                         recto.forEach(element => {
                             if (element.src == test[0].src){
                                 element.parentElement.classList.add("indice");

@@ -154,7 +154,16 @@ option{
     margin: 1rem;
 }
 
-/* classe JS*/
+/* classe JS */
+
+.animation{
+    animation: retourner 0.5s alternate 2;
+}
+@keyframes retourner {
+    to{
+        transform: rotateY(90deg);
+    }
+}
 
 .indice{
     border: 1px solid red;
@@ -165,14 +174,7 @@ option{
         border: 5px solid red;
     }
 }
-.animation{
-    animation: retourner 0.5s alternate 2;
-}
-@keyframes retourner {
-    to{
-        transform: rotateY(90deg);
-    }
-}
+
 .find{
     opacity: 0;
     border: none !important;
