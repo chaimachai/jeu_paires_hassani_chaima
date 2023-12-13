@@ -23,7 +23,7 @@ let echec = 0;
 let maison;
 let maisons = ["gryffondor","serpentard","poufsouffle","serdaigle"];
 let niveau;
-let niveaux = ["facile","moyen","difficile"]
+let niveaux = ["facile","moyen","difficile"];
 
 let joueur = {
     maison: maison,
