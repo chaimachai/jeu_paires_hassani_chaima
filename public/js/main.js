@@ -117,10 +117,12 @@ let retourner = (e)=>{
                         element.parentElement.classList.remove("indice");
                     })
                     if (document.querySelectorAll(".find").length == cartes.length){
-                        score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle parties ${pseudo} ?`
+                        score.querySelector(".question").innerHTML = `Veux-tu jouer une nouvelle partie en mode ${niveau} ${pseudo} ?`
                         if(tableau_score.querySelectorAll("h2").length > 40){
-                            tableau_score.querySelectorAll("h2").forEach(element =>{
-                                element.parentElement.removeChild(element)
+                            tableau_score.querySelectorAll("div").forEach(elements => {
+                                Array.from(elements.children).forEach(element => {
+                                    elements.removeChild(element)
+                                })
                             })
                         }
                         let h2_1 = document.createElement("h2");
@@ -142,7 +144,6 @@ let retourner = (e)=>{
                         div_moyen.forEach(element =>{
                             section_cartes.removeChild(element)
                         })
-                        console.log(cartes.length);
                     }
                 }else{
                     echec += 1
