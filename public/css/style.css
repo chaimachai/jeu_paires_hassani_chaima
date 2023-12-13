@@ -163,17 +163,14 @@ option{
         transform: rotateY(90deg);
     }
 }
-
 .indice{
-    border: 1px solid red;
-    animation: indice infinite alternate !important;
+    animation: indice 0.5s infinite alternate;
 }
 @keyframes indice {
     to{
-        border: 5px solid red;
+        box-shadow:  10px 10px 20px rgba(255,255,255,0.6), -10px -10px 20px rgba(255,255,255,0.6);
     }
 }
-
 .find{
     opacity: 0;
     border: none !important;
