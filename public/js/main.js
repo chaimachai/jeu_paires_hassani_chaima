@@ -14,6 +14,7 @@ let clone = document.querySelector(".clone");
 let affichage2 = document.querySelector(".affichage_2");
 let maisons = ["gryffondor","serpentard","poufsouffle","serdaigle"];
 let niveaux = ["facile","moyen","difficile"];
+let test_input;
 let pseudo;
 let maison;
 let niveau;
@@ -31,8 +32,17 @@ let joueur = {
 }
 
 let lancer = () => {
-    if(input_pseudo.value != ""){
-        pseudo = input_pseudo.value;
+    test_input = input_pseudo.value;
+    test_input = test_input.split("");
+    for (let i=0; i<test_input.length; i++){
+        if (test_input[i] == " "){
+            test_input.splice(i,1);
+            i--;
+        }
+    }
+    test_input.join("");
+    if(test_input.length != 0){
+        pseudo = input_pseudo.value.trim();
         input_pseudo.value = "";
         maison = maisons[parseInt(Math.random()*maisons.length)];
         niveau = document.querySelector("select").value;
@@ -163,7 +173,6 @@ let retourner = (e)=>{
                         recto.forEach(element => {
                             if (element.src == test[0].src){
                                 element.parentElement.classList.add("indice");
-                                test[0].parentElement.classList.add("indice");
                             }
                         })
                     }
@@ -178,7 +187,7 @@ let retourner = (e)=>{
                 test[1].parentElement.classList.remove("animation");
                 count = 0;
                 continu = true;
-            },500)
+            },800)
         }
     }
 }
