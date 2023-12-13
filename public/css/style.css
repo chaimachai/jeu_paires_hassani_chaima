@@ -115,7 +115,6 @@ option{
 }
 .section_cartes{
     display: grid;
-    gap: 4rem;
 }
 .cartes{
     cursor: url("../img/cursor.png"),auto;
@@ -185,7 +184,7 @@ option{
 
 /* media */
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 968px){
     .jeux{
         flex-direction: column;
     }

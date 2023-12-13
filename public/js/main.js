@@ -67,24 +67,36 @@ btn_yes.addEventListener("click",()=>{
 })
 
 let melange = () => {
-    let les_src
+    let les_src;
     if (niveau == "facile"){
         les_src = ["./public/img/carte_1.jpg", "./public/img/carte_1.jpg", "./public/img/carte_2.jpg" ,"./public/img/carte_2.jpg" ,"./public/img/carte_3.jpg","./public/img/carte_3.jpg"];
-        cartes[0].parentElement.style = "grid-template-columns: repeat(3,1fr);"
-    }else if (niveau == "moyen" || niveau == "difficile"){
+        cartes[0].parentElement.style = "grid-template-columns: repeat(3,1fr); gap: 4rem"
+    }else if (niveau == "moyen"){
         les_src = ["./public/img/carte_1.jpg", "./public/img/carte_1.jpg", "./public/img/carte_2.jpg" ,"./public/img/carte_2.jpg" ,"./public/img/carte_3.jpg","./public/img/carte_3.jpg","./public/img/carte_4.jpg","./public/img/carte_4.jpg"];
         for(let i=0; i<2; i++){
             let div= document.createElement("div");
-            div.className = "cartes moyen";
             let img_recto = document.createElement("img");
             let img_verso = document.createElement("img");
+            div.className = "cartes supp";
             img_recto.className = "recto none";
             img_verso.className = "verso";
             div.append(img_recto,img_verso);
-            console.log(cartes[0].parentElement);
             cartes[0].parentElement.appendChild(div);
         }
-        cartes[0].parentElement.style = "grid-template-columns: repeat(4,1fr);"
+        cartes[0].parentElement.style = "grid-template-columns: repeat(4,1fr); gap: 3rem"
+    }else if (niveau == "difficile"){
+        les_src = ["./public/img/carte_1.jpg", "./public/img/carte_1.jpg", "./public/img/carte_2.jpg" ,"./public/img/carte_2.jpg" ,"./public/img/carte_3.jpg","./public/img/carte_3.jpg","./public/img/carte_4.jpg","./public/img/carte_4.jpg","./public/img/carte_5.jpg","./public/img/carte_5.jpg"];
+        for(let i=0; i<4; i++){
+            let div= document.createElement("div");
+            let img_recto = document.createElement("img");
+            let img_verso = document.createElement("img");
+            div.className = "cartes supp";
+            img_recto.className = "recto none";
+            img_verso.className = "verso";
+            div.append(img_recto,img_verso);
+            cartes[0].parentElement.appendChild(div);
+        }
+        cartes[0].parentElement.style = "grid-template-columns: repeat(5,1fr); gap: 1rem"
     }
     recto = document.querySelectorAll(".recto");
     verso = document.querySelectorAll(".verso");
@@ -140,9 +152,9 @@ let retourner = (e)=>{
                         tableau_score.querySelectorAll("div")[3].appendChild(h2_4);
                         score.classList.remove("none");
                         jeu.classList.add("none");
-                        let div_moyen = document.querySelectorAll('.moyen');
+                        let carte_supp = document.querySelectorAll('.supp');
                         let section_cartes = document.querySelector(".section_cartes")
-                        div_moyen.forEach(element =>{
+                        carte_supp.forEach(element =>{
                             section_cartes.removeChild(element)
                         })
                     }
